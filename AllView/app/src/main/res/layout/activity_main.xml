@@ -7,10 +7,18 @@
 
 
 
+    <TextView
+        android:id="@+id/ring04w"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="ring04w 2015-07-08"/>
+
     <ProgressBar
         android:id="@+id/first_progressbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/ring04w"
         android:max="200"
         android:progress="0"
         style="?android:progressBarStyleHorizontal"/>
