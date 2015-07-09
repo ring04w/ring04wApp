@@ -18,10 +18,15 @@ import org.w3c.dom.Text;
 public class MainActivity extends ActionBarActivity {
 
     private ProgressBar progressBar;
-    private Button button1;
-    private Button button2;
+    private Button progressButton;
+
     private SeekBar seekBar;
+    private Button seekBarButton;
+
     private RatingBar ratingBar;
+    private Button ratingBarButton;
+
+
 
 
     @Override
@@ -29,58 +34,69 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         progressBar = (ProgressBar)findViewById(R.id.first_progressbar);
+        progressButton = (Button)findViewById(R.id.progressbar_button);
+        ButtonProgressBarListener buttonProgressBarListener = new ButtonProgressBarListener();
+        progressButton.setOnClickListener(buttonProgressBarListener);
 
-
-        button1 = (Button)findViewById(R.id.button_1);
-        ButtonListener buttonListener = new ButtonListener();
-        button1.setOnClickListener(buttonListener);
 
         seekBar = (SeekBar)findViewById(R.id.first_seekbar);
         SeekBarListener seekBarListener = new SeekBarListener();
         seekBar.setOnSeekBarChangeListener(seekBarListener);
+        seekBarButton = (Button)findViewById(R.id.seekbar_button);
+        ButtonSeekBarListener buttonSeekBarListener = new ButtonSeekBarListener();
+        seekBarButton.setOnClickListener(buttonSeekBarListener);
 
         ratingBar = (RatingBar)findViewById(R.id.first_ratingbar);
         RatingBarListener ratingBarListener = new RatingBarListener();
         ratingBar.setOnRatingBarChangeListener(ratingBarListener);
-        button2 = (Button)findViewById(R.id.button_2);
+        ratingBarButton = (Button)findViewById(R.id.ratingbar_button);
         ButtonRatingBarListener buttonRatingBarListener = new ButtonRatingBarListener();
-        button2.setOnClickListener(buttonRatingBarListener);
+        ratingBarButton.setOnClickListener(buttonRatingBarListener);
+
 
 
 
     }
 
 
-    class ButtonListener implements View.OnClickListener{
+    class ButtonProgressBarListener implements View.OnClickListener{
+
         @Override
         public void onClick(View v) {
             progressBar.incrementProgressBy(10);
         }
     }
 
-    class SeekBarListener implements android.widget.SeekBar.OnSeekBarChangeListener{
+    class SeekBarListener implements SeekBar.OnSeekBarChangeListener{
         @Override
-        public void onProgressChanged(android.widget.SeekBar seekBar, int progress, boolean fromUser) {
-            System.out.println("progress: " + progress + "fromUser: " + fromUser);
-
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            System.out.println("progress: " + progress + "fromUser: " + fromUser );
         }
 
         @Override
-        public void onStartTrackingTouch(android.widget.SeekBar seekBar) {
-            System.out.println("Strat to move bar");
+        public void onStartTrackingTouch(SeekBar seekBar) {
+            System.out.println("Start to change the seekBar");
         }
 
         @Override
-        public void onStopTrackingTouch(android.widget.SeekBar seekBar) {
-            System.out.println("Stop to move bar");
+        public void onStopTrackingTouch(SeekBar seekBar) {
+         System.out.println("Stopped to change the seekBar");
+        }
+    }
+
+    class ButtonSeekBarListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v) {
+            seekBar.incrementProgressBy(20);
         }
     }
 
     class RatingBarListener implements RatingBar.OnRatingBarChangeListener{
         @Override
         public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-            System.out.println("rating: " + rating + "fromUser: " + fromUser);
+            System.out.println("progress: " + rating + "fromUser: " + fromUser);
         }
     }
 

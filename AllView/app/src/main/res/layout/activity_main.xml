@@ -16,42 +16,53 @@
 
     <ProgressBar
         android:id="@+id/first_progressbar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="?android:progressBarStyleHorizontal"
         android:layout_below="@id/ring04w"
         android:max="200"
-        android:progress="0"
-        style="?android:progressBarStyleHorizontal"/>
-
+        android:progress="20"/>
     <Button
-        android:id="@+id/button_1"
+        android:id="@+id/progressbar_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/first_progressbar"
         android:layout_centerHorizontal="true"
-        android:text="ProgressChange"/>
+        android:text="progress"/>
 
     <SeekBar
         android:id="@+id/first_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:max="200"
+        android:progress="30"
+        />
+    <Button
+        android:id="@+id/seekbar_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:max="200"
-        android:progress="20"
-        android:layout_below="@+id/button_1"/>
+        android:layout_below="@+id/first_seekbar"
+        android:layout_centerHorizontal="true"
+        android:text="pull"/>
 
     <RatingBar
         android:id="@+id/first_ratingbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/first_seekbar"
+        android:layout_below="@id/seekbar_button"
+        android:layout_centerHorizontal="true"
         android:numStars="5"
-        android:stepSize="1"/>
+        android:stepSize="1" />
     <Button
-        android:id="@+id/button_2"
+        android:id="@+id/ratingbar_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/first_ratingbar"
         android:layout_centerHorizontal="true"
-        android:text="giveStars"/>
+        android:text="addstars"/>
+
+
+
 
 </RelativeLayout>
