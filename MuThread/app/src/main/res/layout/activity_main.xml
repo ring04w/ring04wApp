@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp"
+    tools:context=".MainActivity">
+
+
+
+
+    <ProgressBar
+        android:id="@+id/progressbarId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="200"
+        android:progress="30"
+        style="?android:progressBarStyleHorizontal"/>
+    <Button
+        android:id="@+id/firstbuttonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressbarId"
+        android:layout_centerInParent="true"
+        android:text="Change Bar"/>
+
+
+    <Button
+        android:id="@+id/messagebuttonId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/firstbuttonId"
+        android:text="send Message"/>
+
+    <TextView
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/messagebuttonId"
+        />
+
+
+</RelativeLayout>
