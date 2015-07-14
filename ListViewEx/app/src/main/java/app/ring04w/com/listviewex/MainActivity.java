@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -27,12 +28,18 @@ public class MainActivity extends ListActivity {
 
         tsungView = (TextView)findViewById(R.id.ring04wtextviewId);
 
+
+
+
         ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
         HashMap<String, String> map1 = new HashMap<String, String>();
         HashMap<String, String> map2 = new HashMap<String, String>();
         HashMap<String, String> map3 = new HashMap<String, String>();
         HashMap<String, String> map4 = new HashMap<String, String>();
         HashMap<String, String> map5 = new HashMap<String, String>();
+
+
+
         map1.put("user_name", "ring04w");
         map1.put("user_ip", "192.168.0.1");
         map2.put("user_name", "Tsung");
@@ -43,11 +50,13 @@ public class MainActivity extends ListActivity {
         map4.put("user_ip", "192.168.0.4");
         map5.put("user_name", "Jobs");
         map5.put("user_ip", "192.168.0.5");
+
         list.add(map1);
         list.add(map2);
         list.add(map3);
         list.add(map4);
         list.add(map5);
+
         SimpleAdapter listAdapter = new SimpleAdapter(this, list, R.layout.user,
                 new String[]{"user_name", "user_ip"}, new int[]{R.id.user_name, R.id.user_ip});
         setListAdapter(listAdapter);
@@ -55,6 +64,7 @@ public class MainActivity extends ListActivity {
 
 
     }
+
 
     protected void onListItemClick(ListView l, View v, int position, long id) {//在这里面根据点击的view执行任务
         super.onListItemClick(l, v, position, id);
@@ -68,6 +78,10 @@ public class MainActivity extends ListActivity {
             Uri uri = Uri.parse("smsto:10010");
             Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
             intent.putExtra("sms_body", "Hello, Peter");
+            startActivity(intent);
+        }else if (id == 3){
+            Intent intent = new Intent();
+            intent.setClass(MainActivity.this, SendMsgActivity.class);
             startActivity(intent);
         }
     }
